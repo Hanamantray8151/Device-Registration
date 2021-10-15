@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Details</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="dataTables.bootstrap4.min.css">
+    <script src="jquery-3.3.1.slim.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="jquery.dataTables.min.js"></script>
+    <script src="dataTables.bootstrap4.min.js"></script>
+</head>
+<body>
+    <div class="row py-5">
+        <div class="col-lg-10 mx-auto">
+            <div class="card rounded shadow border-0">
+                <div class="card-body p-5 bg-white rounded">
+                    <div class="table-responsive">
+                        <table id="example" style="width:100%" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Id</th>
+                                    <th>Ram</th>
+                                    <th>Mfg Date</th>
+                                    <th>Model</th>
+                                    <th>Operating System</th>
+                                    <th>Storage</th>
+                                    <th>Graphic Card</th>
+                                </tr>
+                            </thead>
+                            <% getDevices.forEach(function(device){ %>
+                            <tbody>
+                                <tr>
+                                    <td><%= device.name %></td>
+                                    <td><%= device.id %></td>
+                                    <td><%= device.ram %></td>
+                                    <td><%= device.mfg %></td>
+                                    <td><%= device.model %></td>
+                                    <td><%= device.os %></td>
+                                    <td><%= device.storage %></td>
+                                    <td><%= device.graphic %></td>
+                                </tr>
+                            </tbody>
+                            <% }) %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $(document).ready(function() {
+                $('#example').DataTable();
+            });
+        });
+    </script>
+</body>
+</html>
